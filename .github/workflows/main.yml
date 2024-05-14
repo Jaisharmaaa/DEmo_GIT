@@ -28,15 +28,15 @@ jobs:
           echo 'export PATH=/opt/apache-jmeter-5.6.3/bin:$PATH' >> ~/.bashrc
           source ~/.bashrc
       - name: Run JMeter Tests
-        run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/CredentialsView Results Tree.jmx"
+        run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/CredentialsView Results Tree.jmx -e "
 
 
-      - name: Upload JMeter Report
+      - name: Upload JMeter Logs
         if: always()  # Ensure reports are uploaded even if tests fail
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
-          name: jmeter-test-report
-          path: JmeterAssignment
+          name: JMeter Logs
+          path: JmeterAssignment/logs
          
 
 
