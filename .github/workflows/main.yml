@@ -38,6 +38,27 @@ jobs:
           name: JMeter Logs
           path: JmeterAssignment
           overwrite: true
+
+       - name: Get Runner IP Addresses
+         
+        on:
+         push:
+         branches: [main]
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Get IP Addresses
+              id: ip
+              uses: candidob/get-runner-ip@v1.0.0
+
+            - name: See IP Addresses
+              run: |
+                  echo ${{ steps.ip.outputs.ipv4 }}
+                  echo ${{ steps.ip.outputs.ipv6 }}
          
 
 
