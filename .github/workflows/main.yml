@@ -28,7 +28,7 @@ jobs:
           echo 'export PATH=/opt/apache-jmeter-5.6.3/bin:$PATH' >> ~/.bashrc
           source ~/.bashrc
       - name: Run JMeter Tests
-        run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/CredentialsView Results Tree.jmx -e "
+        run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/CredentialsView Results Tree.jmx"
 
 
       - name: Upload JMeter Logs
